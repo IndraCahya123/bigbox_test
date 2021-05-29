@@ -97,7 +97,7 @@ const diceGame = (players, dices) => {
         }
 
         let statusGameEvaluation = firstEvaluation.map(item => {
-            if (item.dices.length < 0) {
+            if (item.dices.length < 1) {
                 return {
                     ...item,
                     status: "Game Selesai"
