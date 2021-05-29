@@ -97,7 +97,7 @@ const diceGame = (players, dices) => {
         }
 
         let statusGameEvaluation = firstEvaluation.map(item => {
-            if (item.dices.length == 0) {
+            if (item.dices.length < 0) {
                 return {
                     ...item,
                     status: "Game Selesai"
@@ -151,7 +151,8 @@ const diceGame = (players, dices) => {
     const onGoingGame = () => {
         if (gameOver()) {
             const winnerFilter = gameEval[gameEval.length - 1].evaluation.filter(item => item.dices.length == 0);
-            const winnerSort = winnerFilter.sort((a, b) => b.score - a.score)
+            const winnerSort = winnerFilter.sort((a, b) => b.score - a.score);
+            console.log("Game Play : ", gameEval);
             console.log(`The winner is ${winnerSort[0].player}`,winnerSort[0]);
         } else {
             gameEval.push({
